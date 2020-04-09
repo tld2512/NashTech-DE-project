@@ -1,5 +1,6 @@
 package com.longdt.finalproject.controller;
 
+import com.longdt.finalproject.log.MyLogger;
 import com.longdt.finalproject.model.Book;
 import com.longdt.finalproject.service.BookService;
 import com.longdt.finalproject.service.ConnectionService;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Logger;
 
 @WebServlet(name = "BookServlet", urlPatterns = "/bookList")
 public class BookServlet extends HttpServlet {
@@ -22,6 +24,7 @@ public class BookServlet extends HttpServlet {
     private static final String UPDATE = "update";
     private static final String DELETE = "delete";
     private static final String VIEW = "view";
+    private static final Logger logger = MyLogger.getLogger();
     private IBookService bookService = new BookService();
 
     @Override
@@ -61,6 +64,7 @@ public class BookServlet extends HttpServlet {
             }
             default: {
                 listBooks(req, resp);
+                logger.info("Book list page is accessed");
                 break;
             }
         }
@@ -74,7 +78,11 @@ public class BookServlet extends HttpServlet {
         }
         switch (action) {
             case CREATE: {
-                createNewBook(req, resp);
+                try {
+                    createNewBook(req, resp);
+                } catch (ServletException | IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
             case UPDATE: {
@@ -112,21 +120,29 @@ public class BookServlet extends HttpServlet {
         }
     }
 
-    private void createNewBook(HttpServletRequest req, HttpServletResponse resp) {
+    private void createNewBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Connection conn = ConnectionService.getStoredConnection(req);
         String name = req.getParameter("name");
         String imgURL = req.getParameter("imgURL");
         String description = req.getParameter("description");
         float price = Float.parseFloat(req.getParameter("price"));
         Book newBook = new Book(name, imgURL, description, price);
-        try {
-            this.bookService.saveBook(newBook, conn);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("view/create.jsp");
-            req.setAttribute("message", "New book was created successfully");
-            dispatcher.forward(req, resp);
-        } catch (SQLException | ServletException | IOException e) {
-            e.printStackTrace();
+
+        if (name.equals("") || price == 0) {
+            req.setAttribute("message", "Name and price is required");
+            logger.warning("New book failed to create, some fields is required");
+        } else {
+            try {
+                this.bookService.saveBook(newBook, conn);
+                req.setAttribute("message", "New book was created successfully");
+                logger.info("New book with id: " + newBook.getId() + " was created successfully");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("view/create.jsp");
+        dispatcher.forward(req, resp);
     }
 
     private void getUpdateForm(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
@@ -158,6 +174,7 @@ public class BookServlet extends HttpServlet {
         RequestDispatcher dispatcher;
         if (book == null) {
             dispatcher = req.getRequestDispatcher("error-404.jsp");
+            logger.warning("Update failed");
         } else {
             book.setName(name);
             book.setImgURL(imgURL);
@@ -167,6 +184,7 @@ public class BookServlet extends HttpServlet {
             req.setAttribute("book", book);
             req.setAttribute("message", "Book information was updated");
             dispatcher = req.getRequestDispatcher("view/update.jsp");
+            logger.info("Book with id: " + book.getId() + " updated successfully");
         }
         dispatcher.forward(req, resp);
     }
@@ -175,6 +193,7 @@ public class BookServlet extends HttpServlet {
         Connection conn = ConnectionService.getStoredConnection(req);
         int id = Integer.parseInt(req.getParameter("id"));
         this.bookService.deleteBook(id, conn);
+        logger.info("Book with id: " + id + " is deleted");
         resp.sendRedirect("/bookList");
     }
 
@@ -188,6 +207,7 @@ public class BookServlet extends HttpServlet {
         } else {
             req.setAttribute("book", book);
             dispatcher = req.getRequestDispatcher("/view/detail.jsp");
+            logger.info("Book with id: " + id + " was viewed");
         }
         try {
             dispatcher.forward(req, resp);

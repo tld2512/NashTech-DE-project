@@ -1,5 +1,6 @@
 package com.longdt.finalproject.controller;
 
+import com.longdt.finalproject.log.MyLogger;
 import com.longdt.finalproject.model.User;
 import com.longdt.finalproject.service.ConnectionService;
 import com.longdt.finalproject.service.UserService;
@@ -12,8 +13,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 public class ProfileServlet extends HttpServlet {
+    private static final Logger logger = MyLogger.getLogger();
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -31,6 +35,7 @@ public class ProfileServlet extends HttpServlet {
             }
             default: {
                 goToProfile(request, response);
+                logger.info("profile page has accessed");
                 break;
             }
         }
@@ -83,9 +88,10 @@ public class ProfileServlet extends HttpServlet {
                 if (newPw.equals(newPw2) && !newPw.equals("")) {
                     UserService.updatePassword(connection, user, newPw);
                     message = "Password changed successfully";
-                } else if (newPw.equals("")){
+                    logger.info("User: " + userName + " changed the password");
+                } else if (newPw.equals("")) {
                     message = "Please enter a valid password";
-                }else {
+                } else {
                     message = "Re-entered password is not matched";
                 }
             } else {
