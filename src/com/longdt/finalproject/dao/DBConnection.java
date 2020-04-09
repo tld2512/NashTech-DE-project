@@ -10,7 +10,7 @@ public class DBConnection {
         try {
             String dbDriver = "com.mysql.cj.jdbc.Driver";
             String dbURL = "jdbc:mysql://localhost:3306/";
-            String utf8 = "?useUnicode=yes&characterEncoding=UTF-8&useSSL=false";
+            String utf8 = "?useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false";
 
             dbName = "final_project";
             dbUserName = "root";
