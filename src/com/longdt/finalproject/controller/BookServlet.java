@@ -2,17 +2,21 @@ package com.longdt.finalproject.controller;
 
 import com.longdt.finalproject.model.Book;
 import com.longdt.finalproject.service.BookService;
+import com.longdt.finalproject.service.ConnectionService;
 import com.longdt.finalproject.service.IBookService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+@WebServlet(name = "BookServlet", urlPatterns = "/bookList")
 public class BookServlet extends HttpServlet {
     private static final String CREATE = "create";
     private static final String UPDATE = "update";
@@ -88,8 +92,9 @@ public class BookServlet extends HttpServlet {
     }
 
     private void listBooks(HttpServletRequest req, HttpServletResponse resp) {
+        Connection conn = ConnectionService.getStoredConnection(req);
         try {
-            List<Book> bookList = this.bookService.listAllBook();
+            List<Book> bookList = this.bookService.listAllBook(conn);
             req.setAttribute("books", bookList);
             RequestDispatcher dispatcher = req.getRequestDispatcher("view/list.jsp");
             dispatcher.forward(req, resp);
@@ -108,13 +113,14 @@ public class BookServlet extends HttpServlet {
     }
 
     private void createNewBook(HttpServletRequest req, HttpServletResponse resp) {
+        Connection conn = ConnectionService.getStoredConnection(req);
         String name = req.getParameter("name");
         String imgURL = req.getParameter("imgURL");
         String description = req.getParameter("description");
         float price = Float.parseFloat(req.getParameter("price"));
         Book newBook = new Book(name, imgURL, description, price);
         try {
-            this.bookService.saveBook(newBook);
+            this.bookService.saveBook(newBook, conn);
             RequestDispatcher dispatcher = req.getRequestDispatcher("view/create.jsp");
             req.setAttribute("message", "New book was created successfully");
             dispatcher.forward(req, resp);
@@ -124,8 +130,9 @@ public class BookServlet extends HttpServlet {
     }
 
     private void getUpdateForm(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
+        Connection conn = ConnectionService.getStoredConnection(req);
         String id = req.getParameter("id");
-        Book book = this.bookService.findBook(id);
+        Book book = this.bookService.findBook(id, conn);
         RequestDispatcher dispatcher;
         if (book == null) {
             dispatcher = req.getRequestDispatcher("error-404.jsp");
@@ -141,12 +148,13 @@ public class BookServlet extends HttpServlet {
     }
 
     private void updateBook(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
+        Connection conn = ConnectionService.getStoredConnection(req);
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String imgURL = req.getParameter("imgURL");
         String description = req.getParameter("description");
         Float price = Float.parseFloat(req.getParameter("price"));
-        Book book = this.bookService.findBook(id);
+        Book book = this.bookService.findBook(id, conn);
         RequestDispatcher dispatcher;
         if (book == null) {
             dispatcher = req.getRequestDispatcher("error-404.jsp");
@@ -155,7 +163,7 @@ public class BookServlet extends HttpServlet {
             book.setImgURL(imgURL);
             book.setDescription(description);
             book.setPrice(price);
-            this.bookService.updateBook(Integer.parseInt(id), book);
+            this.bookService.updateBook(Integer.parseInt(id), book, conn);
             req.setAttribute("book", book);
             req.setAttribute("message", "Book information was updated");
             dispatcher = req.getRequestDispatcher("view/update.jsp");
@@ -164,15 +172,16 @@ public class BookServlet extends HttpServlet {
     }
 
     private void deleteBook(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
+        Connection conn = ConnectionService.getStoredConnection(req);
         int id = Integer.parseInt(req.getParameter("id"));
-        this.bookService.deleteBook(id);
+        this.bookService.deleteBook(id, conn);
         resp.sendRedirect("/bookList");
     }
 
     private void getDetailBook(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
-//        int id = Integer.parseInt(req.getParameter("id"));
+        Connection conn = ConnectionService.getStoredConnection(req);
         String id = req.getParameter("id");
-        Book book = this.bookService.findBook(id);
+        Book book = this.bookService.findBook(id, conn);
         RequestDispatcher dispatcher;
         if (book == null) {
             dispatcher = req.getRequestDispatcher("error-404.jsp");

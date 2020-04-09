@@ -10,31 +10,60 @@
 <html>
 <head>
     <title>Book Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <style>
+        .btn {
+            width: 75px;
+            height: auto;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-<h1 onclick="">Book Store</h1>
+<jsp:include page="template/header.jsp"></jsp:include>
+
 <p>
-    <a href="/bookList?action=create">Create new book</a>
+<h4><a href="/bookList?action=create">Create new book</a></h4>
 </p>
-<table border="1">
-    <tr>
-        <td>Name</td>
-        <td>Image</td>
-<%--        <td>Description</td>--%>
-        <td>Price</td>
-        <td>Edit</td>
-        <td>Delete</td>
-    </tr>
-    <c:forEach items='${requestScope["books"]}' var="book">
-        <tr>
-            <td style="width: 25%"><a href="/bookList?action=view&id=${book.getId()}">${book.getName()}</a></td>
-            <td style="width: 40%"><img src="${book.getImgURL()}" alt="" style="height: 100px; width: auto"></td>
-<%--            <td >${book.getDescription()}</td>--%>
-            <td style="width: 15%">${book.getPrice()}</td>
-            <td style="width: 10%"><a href="/bookList?action=update&id=${book.getId()}">Edit</a></td>
-            <td style="width: 10%"><a href="/bookList?action=delete&id=${book.getId()}" onclick="confirm('Are you sure you want to delete this book?')">Delete</a></td>
-        </tr>
-    </c:forEach>
-</table>
+<div class="container">
+    <div class="row">
+        <c:forEach items='${requestScope["books"]}' var="book">
+            <div class="col-lg-4 col-md-6 col-sm-10" style="padding: 5px">
+                <div class="card" style="width: 95%;height: 280px">
+                    <img src="${book.getImgURL()}" class="card-img-top" alt="..." style="height: 50%; width: 45%; margin-left: 12%">
+                    <div class="card-body">
+                        <table>
+                            <tr>
+                                <h5 class="card-title" style="color: blue; text-shadow: magenta 2px 2px 6px">
+                                        ${book.getName()}
+                                </h5>
+                            </tr>
+                                <p class="card-text"> <b>Price:  ${book.getPrice()}</b> </p>
+                            </tr>
+
+                            <tr>
+                                <td><a href="/bookList?action=view&id=${book.getId()}"
+                                       style=" bottom: 2%"
+                                       class="btn btn-info">View</a></td>
+                                <td><a href="/bookList?action=update&id=${book.getId()}" class="btn btn-primary"
+                                       style=" bottom: 2%">Edit</a></td>
+                                <td><a href="/bookList?action=delete&id=${book.getId()}"
+                                       onclick="confirm('Are you sure you want to delete this book?')"
+                                       class="btn btn-danger"
+                                       style="bottom: 2%;">Delete</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</div>
 </body>
 </html>

@@ -26,10 +26,6 @@
         <legend>Book Information</legend>
         <table>
             <tr>
-                <td>ID:</td>
-                <td><input type="text" name="id" value="${requestScope["book"].getId()}"></td>
-            </tr>
-            <tr>
                 <td>Name:</td>
                 <td><input type="text" name="name" value="${requestScope["book"].getName()}"></td>
             </tr>

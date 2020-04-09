@@ -11,10 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookService implements IBookService {
-    Connection connection = DBConnection.getConnection();
 
     @Override
-    public List<Book> listAllBook() throws SQLException {
+    public List<Book> listAllBook(Connection connection) throws SQLException {
         String sql = "select b.id, b.book_name, b.imgURL, b.book_description, b.price from book b ";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -41,7 +40,7 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public void saveBook(Book book) throws SQLException {
+    public void saveBook(Book book, Connection connection) throws SQLException {
         String sql = "insert into book(book_name, imgURL, book_description, price) values (?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql);
 //        ps.setInt(1, book.getId());
@@ -54,7 +53,7 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public void updateBook(int id, Book book) throws SQLException {
+    public void updateBook(int id, Book book, Connection connection) throws SQLException {
         String sql = "update book set book_name = ?, imgURL = ?, book_description = ?, price = ? where id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, book.getName());
@@ -67,7 +66,7 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public void deleteBook(int id) throws SQLException {
+    public void deleteBook(int id, Connection connection) throws SQLException {
         String sql = "delete from book where id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, String.valueOf(id));
@@ -76,7 +75,7 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public Book findBook(String id) throws SQLException {
+    public Book findBook(String id, Connection connection) throws SQLException {
         String sql = "Select b.id, b.book_name, b.imgURL, b.book_description, b.price from book b where b.id=?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, id);
