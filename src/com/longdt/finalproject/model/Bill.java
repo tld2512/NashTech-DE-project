@@ -1,14 +1,14 @@
 package com.longdt.finalproject.model;
 
-public class Order {
+public class Bill {
     private int id = 0;
     private String user_name;
-    private float total_money;
+    private float total_money = 0;
 
-    public Order() {
+    public Bill() {
     }
 
-    public Order(String user_name, float total_money) {
+    public Bill(String user_name, float total_money) {
         this.id = ++this.id;
         this.user_name = user_name;
         this.total_money = total_money;

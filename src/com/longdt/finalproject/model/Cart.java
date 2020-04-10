@@ -1,17 +1,17 @@
 package com.longdt.finalproject.model;
 
-public class OrderDetail {
+public class Cart {
     private int id = 0;
-    private int order_id;
+    private int bill_id;
     private int book_id;
-    private int quantity;
+    private int quantity = 0;
 
-    public OrderDetail() {
+    public Cart() {
     }
 
-    public OrderDetail(int order_id, int book_id, int quantity) {
+    public Cart(int bill_id, int book_id, int quantity) {
         this.id = ++this.id;
-        this.order_id = order_id;
+        this.bill_id = bill_id;
         this.book_id = book_id;
         this.quantity = quantity;
     }
@@ -24,12 +24,12 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public int getOrder_id() {
-        return order_id;
+    public int getBill_id() {
+        return bill_id;
     }
 
-    public void setOrder_id(int order_id) {
-        this.order_id = order_id;
+    public void setBill_id(int bill_id) {
+        this.bill_id = bill_id;
     }
 
     public int getBook_id() {

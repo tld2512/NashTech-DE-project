@@ -10,6 +10,10 @@
 <html>
 <head>
     <title>Edit Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <jsp:include page="template/header.jsp"></jsp:include>
@@ -17,7 +21,7 @@
 <h1>Update Book</h1>
 <p>
     <c:if test="${requestScope['message']!=null}">
-        <span class="message">${requestScope['message']}</span>
+        <span class="message" style="color: dodgerblue">${requestScope['message']}</span>
     </c:if>
 </p>
 <p>
