@@ -16,4 +16,6 @@ public interface IBookService {
     void deleteBook(int id, Connection connection) throws SQLException;
 
     Book findBook(String id, Connection connection) throws SQLException;
+
+    List<Book> findByName(String keyword, Connection connection) throws SQLException;
 }

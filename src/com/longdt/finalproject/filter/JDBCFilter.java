@@ -1,6 +1,7 @@
 package com.longdt.finalproject.filter;
 
 import com.longdt.finalproject.dao.DBConnection;
+import com.longdt.finalproject.log.MyLogger;
 import com.longdt.finalproject.service.ConnectionService;
 
 import javax.servlet.*;
@@ -11,9 +12,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Map;
+import java.util.logging.Logger;
 
 @WebFilter(filterName = "jdbcFilter", urlPatterns = {"/*"})
 public class JDBCFilter implements Filter {
+    private static final Logger logger = MyLogger.getLogger();
+
     public JDBCFilter() {
     }
 
@@ -22,8 +26,8 @@ public class JDBCFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         if (this.needJDBC(req)) {
 //            System.out.println("Open Connection for: " + req.getServletPath());
+            logger.info("Open JDBC connection for " + req.getServletPath());
             Connection conn = null;
-
             try {
                 conn = DBConnection.getConnection();
                 conn.setAutoCommit(false);
@@ -33,6 +37,7 @@ public class JDBCFilter implements Filter {
             } catch (SQLException e) {
                 e.printStackTrace();
                 ConnectionService.rollbackQuietly(conn);
+                logger.severe(e.getMessage());
                 throw new ServletException();
             } finally {
                 ConnectionService.closeQuietly(conn);
@@ -43,7 +48,7 @@ public class JDBCFilter implements Filter {
     }
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
     }
 
     @Override
@@ -58,8 +63,7 @@ public class JDBCFilter implements Filter {
         if (pathInfo != null) {
             urlPattern = servletPath + "/*";
         }
-        Map<String, ? extends ServletRegistration> servletRegistrations = request.getServletContext()
-                .getServletRegistrations();
+        Map<String, ? extends ServletRegistration> servletRegistrations = request.getServletContext().getServletRegistrations();
 
         Collection<? extends ServletRegistration> values = servletRegistrations.values();
         for (ServletRegistration sr : values) {

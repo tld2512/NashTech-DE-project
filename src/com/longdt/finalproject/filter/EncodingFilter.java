@@ -1,4 +1,4 @@
-package com.longdt.finalproject.controller;
+package com.longdt.finalproject.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

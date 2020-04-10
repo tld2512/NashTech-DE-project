@@ -28,23 +28,38 @@
 <body>
 <jsp:include page="template/header.jsp"></jsp:include>
 
-<p>
-<h4><a href="/bookList?action=create">Create new book</a></h4>
-</p>
+<div class="container" style="margin-top: 10px">
+    <div class="row">
+        <div class="col-4">
+            <p>
+            <h4><a href="/bookList?action=create">Create new book</a></h4>
+            </p>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form class="form-inline md-form mr-auto mb-4" method="post" action="/bookList?action=search&keyword=${keyword}">
+                <input class="form-control mr-sm-2" type="text" name="keyWord" id="keyWord" placeholder="Search">
+                <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <c:forEach items='${requestScope["books"]}' var="book">
             <div class="col-lg-4 col-md-6 col-sm-10" style="padding: 5px">
                 <div class="card" style="width: 95%;height: 280px">
-                    <img src="${book.getImgURL()}" class="card-img-top" alt="..." style="height: 50%; width: 45%; margin-left: 12%">
+                    <img src="${book.getImgURL()}" class="card-img-top" alt="..."
+                         style="height: 50%; width: 45%; margin-left: 12%">
                     <div class="card-body">
                         <table>
                             <tr>
                                 <h5 class="card-title" style="color: blue; text-shadow: magenta 2px 2px 6px">
-                                        ${book.getName()}
+                                    <a href="/bookList?action=view&id=${book.getId()}">${book.getName()}</a>
                                 </h5>
                             </tr>
-                                <p class="card-text"> <b>Price:  ${book.getPrice()}</b> </p>
+                            <p class="card-text"><b>Price: ${book.getPrice()}</b></p>
                             </tr>
 
                             <tr>

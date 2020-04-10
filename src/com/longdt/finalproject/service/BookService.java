@@ -1,6 +1,5 @@
 package com.longdt.finalproject.service;
 
-import com.longdt.finalproject.dao.DBConnection;
 import com.longdt.finalproject.model.Book;
 
 import java.sql.Connection;
@@ -91,6 +90,32 @@ public class BookService implements IBookService {
         rs.close();
         ps.close();
         return null;
+    }
+
+    @Override
+    public List<Book> findByName(String keyword, Connection connection) throws SQLException {
+        String sql = "Select * from book where book_name like '%" + keyword + "%'";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        List<Book> resultList = new ArrayList<>();
+        while (rs.next()) {
+            String id = rs.getString("id");
+            String name = rs.getString("book_name");
+            String imgURL = rs.getString("imgURL");
+            String description = rs.getString("book_description");
+            float price = rs.getFloat("price");
+            Book book = new Book();
+            book.setId(Integer.parseInt(id));
+            book.setName(name);
+            book.setImgURL(imgURL);
+            book.setDescription(description);
+            book.setPrice(price);
+            resultList.add(book);
+        }
+        rs.close();
+        ps.close();
+        return resultList;
     }
 
 }

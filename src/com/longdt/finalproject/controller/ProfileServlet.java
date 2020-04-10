@@ -30,6 +30,7 @@ public class ProfileServlet extends HttpServlet {
                     goToChangePassword(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    logger.severe(e.getMessage());
                 }
                 break;
             }
@@ -53,6 +54,7 @@ public class ProfileServlet extends HttpServlet {
                     changePassword(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    logger.severe(e.getMessage());
                 }
                 break;
             }
@@ -113,6 +115,7 @@ public class ProfileServlet extends HttpServlet {
                 request.getRequestDispatcher("/view/profile.jsp").forward(request, response);
             } catch (SQLException | ServletException | IOException e) {
                 e.printStackTrace();
+                logger.severe(e.getMessage());
             }
         } else {
             request.getRequestDispatcher("/view/login.jsp").include(request, response);

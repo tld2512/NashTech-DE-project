@@ -24,6 +24,7 @@ public class BookServlet extends HttpServlet {
     private static final String UPDATE = "update";
     private static final String DELETE = "delete";
     private static final String VIEW = "view";
+    private static final String SEARCH = "search";
     private static final Logger logger = MyLogger.getLogger();
     private IBookService bookService = new BookService();
 
@@ -43,6 +44,7 @@ public class BookServlet extends HttpServlet {
                     getUpdateForm(req, resp);
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    logger.severe(e.getMessage());
                 }
                 break;
             }
@@ -51,6 +53,7 @@ public class BookServlet extends HttpServlet {
                     getDetailBook(req, resp);
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    logger.severe(e.getMessage());
                 }
                 break;
             }
@@ -59,7 +62,12 @@ public class BookServlet extends HttpServlet {
                     deleteBook(req, resp);
                 } catch (SQLException | IOException e) {
                     e.printStackTrace();
+                    logger.severe(e.getMessage());
                 }
+                break;
+            }
+            case SEARCH: {
+                searchByName(req, resp);
                 break;
             }
             default: {
@@ -82,6 +90,7 @@ public class BookServlet extends HttpServlet {
                     createNewBook(req, resp);
                 } catch (ServletException | IOException e) {
                     e.printStackTrace();
+                    logger.severe(e.getMessage());
                 }
                 break;
             }
@@ -90,7 +99,12 @@ public class BookServlet extends HttpServlet {
                     updateBook(req, resp);
                 } catch (SQLException | ServletException | IOException e) {
                     e.printStackTrace();
+                    logger.severe(e.getMessage());
                 }
+                break;
+            }
+            case SEARCH: {
+                searchByName(req, resp);
                 break;
             }
             default: {
@@ -108,6 +122,7 @@ public class BookServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (SQLException | ServletException | IOException e) {
             e.printStackTrace();
+            logger.severe(e.getMessage());
         }
     }
 
@@ -117,6 +132,7 @@ public class BookServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
+            logger.severe(e.getMessage());
         }
     }
 
@@ -138,6 +154,7 @@ public class BookServlet extends HttpServlet {
                 logger.info("New book with id: " + newBook.getId() + " was created successfully");
             } catch (SQLException e) {
                 e.printStackTrace();
+                logger.severe(e.getMessage());
             }
         }
 
@@ -160,6 +177,7 @@ public class BookServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
+            logger.severe(e.getMessage());
         }
     }
 
@@ -213,6 +231,25 @@ public class BookServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
+            logger.severe(e.getMessage());
+        }
+    }
+
+    private void searchByName(HttpServletRequest req, HttpServletResponse resp) {
+        Connection connection = ConnectionService.getStoredConnection(req);
+        String keyWord = req.getParameter("keyWord");
+        if (keyWord == null) {
+            keyWord = "";
+        }
+        try {
+            List<Book> bookList = this.bookService.findByName(keyWord, connection);
+            req.setAttribute("books", bookList);
+            req.setAttribute("keyword", keyWord);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("view/list.jsp");
+            dispatcher.forward(req, resp);
+        } catch (SQLException | ServletException | IOException e) {
+            e.printStackTrace();
+            logger.severe(e.getMessage());
         }
     }
 }
