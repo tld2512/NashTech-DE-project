@@ -6,7 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6be76864-6347-4e51-8ead-fc2d1ddf4895" name="Default Changelist" comment="" />
+    <list default="true" id="6be76864-6347-4e51-8ead-fc2d1ddf4895" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/view/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/view/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/view/update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/update.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -241,7 +246,7 @@
       <workItem from="1586374050114" duration="36523000" />
       <workItem from="1586453593989" duration="75000" />
       <workItem from="1586454805298" duration="433000" />
-      <workItem from="1586489085066" duration="12970000" />
+      <workItem from="1586489085066" duration="13991000" />
     </task>
     <servers />
   </component>

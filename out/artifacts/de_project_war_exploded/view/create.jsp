@@ -12,6 +12,7 @@
     <title>Create New Book</title>
 </head>
 <body>
+<jsp:include page="template/header.jsp"></jsp:include>
 <h1>Create New Book</h1>
 <p>
     <c:if test="${requestScope['message']!=null}">

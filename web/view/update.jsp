@@ -12,6 +12,8 @@
     <title>Edit Book</title>
 </head>
 <body>
+<jsp:include page="template/header.jsp"></jsp:include>
+
 <h1>Update Book</h1>
 <p>
     <c:if test="${requestScope['message']!=null}">

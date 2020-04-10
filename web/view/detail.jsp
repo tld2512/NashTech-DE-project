@@ -11,6 +11,8 @@
     <title>Book Detail</title>
 </head>
 <body>
+<jsp:include page="template/header.jsp"></jsp:include>
+
 <h1>Book details</h1>
 <p>
     <a href="/bookList">Back to book list</a>
