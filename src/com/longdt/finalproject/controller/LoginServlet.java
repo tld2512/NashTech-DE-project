@@ -82,7 +82,9 @@ public class LoginServlet extends HttpServlet {
             } else {
                 CookieService.deleteUserCookie(resp);
             }
-            logger.info("User " + user.getUserName() + " logged in");
+            String remoteAddress = req.getRemoteAddr();
+            String protocol = req.getProtocol();
+            logger.info("User " + user.getUserName() + " logged in. " + "User IP: " + remoteAddress + "  Protocol: " + protocol);
             resp.sendRedirect("/bookList");
         }
 
