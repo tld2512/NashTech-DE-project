@@ -76,6 +76,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             HttpSession session = req.getSession();
             session.setAttribute("name", user.getUserName());
+            session.setAttribute("user", user);
             CookieService.storeLoggedInUser(session, user);
             if (remember) {
                 CookieService.storeUserCookie(resp, user);

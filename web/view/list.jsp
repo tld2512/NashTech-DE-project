@@ -37,10 +37,11 @@
         </div>
         <div class="col-4"></div>
         <div class="col-4">
-            <form class="form-inline md-form mr-auto mb-4" method="post" action="/bookList?action=search&keyword=${keyword}">
+            <form class="form-inline md-form mr-auto mb-4" method="post" action="/bookList?action=search">
                 <input class="form-control mr-sm-2" type="text" name="keyWord" id="keyWord" placeholder="Search">
                 <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Search</button>
             </form>
+
         </div>
     </div>
 </div>
@@ -63,15 +64,18 @@
                             </tr>
 
                             <tr>
-                                <td><a href="/bookList?action=view&id=${book.getId()}"
-                                       style=" bottom: 2%"
-                                       class="btn btn-info">View</a></td>
+<%--                                <td><a href="/bookList?action=view&id=${book.getId()}"--%>
+<%--                                       style=" bottom: 2%"--%>
+<%--                                       class="btn btn-info">View</a>--%>
+<%--                                </td>--%>
                                 <td><a href="/bookList?action=update&id=${book.getId()}" class="btn btn-primary"
-                                       style=" bottom: 2%">Edit</a></td>
+                                       style=" bottom: 2%">Edit</a>
+                                </td>
                                 <td><a href="/bookList?action=delete&id=${book.getId()}"
                                        onclick="confirm('Are you sure you want to delete this book?')"
                                        class="btn btn-danger"
-                                       style="bottom: 2%;">Delete</a></td>
+                                       style="bottom: 2%;">Delete</a>
+                                </td>
                             </tr>
                         </table>
                     </div>

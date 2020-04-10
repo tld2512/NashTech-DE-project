@@ -115,10 +115,11 @@ public class BookServlet extends HttpServlet {
 
     private void listBooks(HttpServletRequest req, HttpServletResponse resp) {
         Connection conn = ConnectionService.getStoredConnection(req);
+        RequestDispatcher dispatcher;
         try {
             List<Book> bookList = this.bookService.listAllBook(conn);
             req.setAttribute("books", bookList);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("view/list.jsp");
+            dispatcher = req.getRequestDispatcher("view/list.jsp");
             dispatcher.forward(req, resp);
         } catch (SQLException | ServletException | IOException e) {
             e.printStackTrace();
@@ -244,7 +245,7 @@ public class BookServlet extends HttpServlet {
         try {
             List<Book> bookList = this.bookService.findByName(keyWord, connection);
             req.setAttribute("books", bookList);
-            req.setAttribute("keyword", keyWord);
+            req.getSession().setAttribute("keyWord", keyWord);
             RequestDispatcher dispatcher = req.getRequestDispatcher("view/list.jsp");
             dispatcher.forward(req, resp);
         } catch (SQLException | ServletException | IOException e) {
