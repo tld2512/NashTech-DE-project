@@ -15,14 +15,14 @@ public class DBConnection {
         try {
             String dbDriver = "com.mysql.cj.jdbc.Driver";
             String dbURL = "jdbc:mysql://localhost:3306/";
-            String utf8 = "?useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false";
+            String additionalDBProperties = "?useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false";
 
             dbName = "final_project";
             dbUserName = "root";
             dbPassword = "password";
 
             Class.forName(dbDriver);
-            connection = DriverManager.getConnection(dbURL + dbName + utf8, dbUserName, dbPassword);
+            connection = DriverManager.getConnection(dbURL + dbName + additionalDBProperties, dbUserName, dbPassword);
         } catch (Exception e) {
             e.printStackTrace();
             logger.severe(e.getMessage());
