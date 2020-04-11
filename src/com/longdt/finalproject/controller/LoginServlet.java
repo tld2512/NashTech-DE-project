@@ -46,16 +46,14 @@ public class LoginServlet extends HttpServlet {
 
         if (userName == null || password == null || userName.length() == 0 || password.length() == 0) {
             hasError = true;
-            errorMessage = "Require username and password";
-            logger.warning("Username or password is not entered");
+            errorMessage = "Username and password are required";
         } else {
             Connection connection = ConnectionService.getStoredConnection(req);
             try {
                 user = UserService.findUser(connection, userName, password);
                 if (user == null) {
                     hasError = true;
-                    errorMessage = "Username or password is incorrect";
-                    logger.warning("Incorrect username or password");
+                    errorMessage = "Incorrect username or password";
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

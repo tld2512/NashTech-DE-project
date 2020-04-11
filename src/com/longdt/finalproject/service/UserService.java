@@ -61,7 +61,7 @@ public class UserService {
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, user.getUserName());
         ResultSet rs = ps.executeQuery();
-        if (rs.next()){
+        if (rs.next()) {
             String password = rs.getString("password");
             if (password.equals(inputPassword))
                 return true;
@@ -69,5 +69,25 @@ public class UserService {
         rs.close();
         ps.close();
         return false;
+    }
+
+    public static boolean checkUserNameExisted(Connection connection, String userName) throws SQLException {
+        String sql = "SELECT * FROM user WHERE user_name = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, userName);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void createNewUser(Connection connection, String user_name, String password) throws SQLException {
+        String sql = "insert into user(user_name, password) values (?, ?)";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, user_name);
+        ps.setString(2, password);
+        ps.executeUpdate();
+        ps.close();
     }
 }

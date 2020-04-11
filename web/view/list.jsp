@@ -21,7 +21,7 @@
         }
 
         .btn-edit {
-            width: 52px;
+            width: 50px;
         }
 
         .btn-delete {
@@ -48,6 +48,7 @@
         </div>
     </div>
     <div class="page-content-wrapper">
+
         <div class="container" style="margin-top: 10px">
             <div class="row">
                 <div class="col-4">
@@ -72,9 +73,9 @@
             <div class="row">
                 <c:forEach items='${requestScope["books"]}' var="book">
                     <div class="col-lg-4 col-md-6 col-sm-10" style="padding: 5px">
-                        <div class="card" style="width: 95%;height: 320px; padding: 5px">
+                        <div class="card" style="width: 95%;height: 330px; padding: 5px">
                             <img src="${book.getImgURL()}" class="card-img-top" alt="..."
-                                 style="height: 43%; width: 43%; margin-left: 12%">
+                                 style="height: 42%; width: 43%; margin-left: 12%">
                             <div class="card-body">
                                 <table>
                                     <tr style="height: 50%">
