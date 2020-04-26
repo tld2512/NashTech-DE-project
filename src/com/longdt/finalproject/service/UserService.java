@@ -11,7 +11,6 @@ public class UserService {
     public static User findUser(Connection conn, String userName, String password) throws SQLException {
 
         String sql = "select a.user_name, a.password from user a " + " where a.user_name = ? and a.password= ?";
-
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, userName);
         ps.setString(2, password);
@@ -29,10 +28,8 @@ public class UserService {
     public static User findUser(Connection conn, String userName) throws SQLException {
 
         String sql = "select a.user_name, a.password from user a " + " where a.user_name = ? ";
-
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, userName);
-
         ResultSet rs = ps.executeQuery();
 
         if (rs.next()) {

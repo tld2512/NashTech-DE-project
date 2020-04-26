@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 public class CookieService {
     private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
+
     public static void storeLoggedInUser(HttpSession session, User loggedInUser) {
         session.setAttribute("loggedInUser", loggedInUser);
     }

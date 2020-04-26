@@ -39,16 +39,19 @@ public class SignUpServlet extends HttpServlet {
         if (!checkSignUpInformation(connection, req)) {
             hasError = true;
             errorSignUpMessage = (String) req.getAttribute("errorSignUpMessage");
+            logger.warning(errorSignUpMessage);
         }
         if (hasError) {
             req.setAttribute("errorSignUpMessage", errorSignUpMessage);
         } else {
             try {
                 this.userService.createNewUser(connection, userName, password);
-                errorSignUpMessage = "Your account has been created successfully";
-                req.setAttribute("errorSignUpMessage", errorSignUpMessage);
+                String message = "Your account has been created successfully! ";
+                req.setAttribute("message", message);
+                logger.info("User " + userName + " is created");
             } catch (SQLException e) {
                 e.printStackTrace();
+                logger.severe(e.getMessage());
             }
         }
         req.setAttribute("errorSignUpMessage", errorSignUpMessage);

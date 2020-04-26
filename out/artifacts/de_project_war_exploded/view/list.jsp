@@ -72,7 +72,7 @@
         <div class="container">
             <div class="row">
                 <c:forEach items='${requestScope["books"]}' var="book">
-                    <div class="col-lg-4 col-md-6 col-sm-10" style="padding: 5px">
+                    <div class="col-4" style="padding: 5px">
                         <div class="card" style="width: 95%;height: 330px; padding: 5px">
                             <img src="${book.getImgURL()}" class="card-img-top" alt="..."
                                  style="height: 42%; width: 43%; margin-left: 12%">

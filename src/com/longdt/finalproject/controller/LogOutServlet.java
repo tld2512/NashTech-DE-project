@@ -24,7 +24,12 @@ public class LogOutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         try {
             User user = UserService.findUser(conn, (String) session.getAttribute("name"));
-            logger.info("User " + user.getUserName() + " is logged out");
+            if (user == null) {
+                request.getRequestDispatcher("/view/login.jsp").include(request, response);
+            }
+            if (user != null) {
+                logger.info("User " + user.getUserName() + " is logged out");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -8,19 +8,19 @@
   <component name="ChangeListManager">
     <list default="true" id="6be76864-6347-4e51-8ead-fc2d1ddf4895" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/controller/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/controller/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/controller/LogOutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/controller/LogOutServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/service/CookieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/service/CookieService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/classes/com/longdt/finalproject/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/view/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/view/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/view/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/de_project_war_exploded/view/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/de-project/META-INF/de-project.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/controller/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/controller/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/controller/LogOutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/controller/LogOutServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/service/CookieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/service/CookieService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/de-project/com/longdt/finalproject/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/longdt/finalproject/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/longdt/finalproject/controller/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/longdt/finalproject/controller/LogOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/longdt/finalproject/controller/LogOutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/longdt/finalproject/controller/SignUpServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/longdt/finalproject/controller/SignUpServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/longdt/finalproject/service/CookieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/longdt/finalproject/service/CookieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/longdt/finalproject/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/longdt/finalproject/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/view/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/view/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/view/sign-up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/sign-up.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/view/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CodeGym/de-project" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -76,7 +76,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="sql.rename.search.for.storage.occurrences" value="true" />
   </component>
   <component name="RecentsManager">
@@ -191,7 +191,8 @@
       <workItem from="1586526344276" duration="13616000" />
       <workItem from="1586540316351" duration="2660000" />
       <workItem from="1586564818335" duration="775000" />
-      <workItem from="1586567391077" duration="1139000" />
+      <workItem from="1586567391077" duration="8667000" />
+      <workItem from="1587227269518" duration="22000" />
     </task>
     <servers />
   </component>
@@ -235,58 +236,58 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586531241909" />
-    <state x="711" y="316" key="FileChooserDialogImpl" timestamp="1586530730173">
+    <state x="711" y="316" key="FileChooserDialogImpl" timestamp="1586580129325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="711" y="316" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586530730173" />
-    <state width="1431" height="223" key="GridCell.Tab.0.bottom" timestamp="1586567436392">
+    <state x="711" y="316" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586580129325" />
+    <state width="1431" height="415" key="GridCell.Tab.0.bottom" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.0.center" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.0.center" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.0.left" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.0.left" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.0.right" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.0.right" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.1.bottom" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.1.bottom" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.1.center" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.1.center" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.1.left" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.1.left" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.1.right" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.1.right" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.2.bottom" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.2.bottom" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.2.center" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.2.center" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.2.left" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.2.left" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
-    <state width="1431" height="223" key="GridCell.Tab.2.right" timestamp="1586567436392">
+    <state width="1431" height="415" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
+    <state width="1431" height="415" key="GridCell.Tab.2.right" timestamp="1586580130419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1431" height="223" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586567436392" />
+    <state width="1431" height="415" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586580130419" />
     <state width="1615" height="421" key="GridCell.Tab.3.bottom" timestamp="1586541757176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -307,14 +308,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1586362239796" />
+    <state x="646" y="306" key="IDE.errors.dialog" timestamp="1586577351645">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="646" y="306" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586577351645" />
     <state x="909" y="245" key="NewModule_or_Project.wizard" timestamp="1586409879962">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="909" y="245" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1586409879962" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1586564928772">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1586580052710">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586564928772" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586580052710" />
     <state width="863" height="468" key="XDebugger.FullValuePopup" timestamp="1586541059581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -344,29 +349,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/longdt/finalproject/controller/SignUpServlet.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/longdt/finalproject/controller/SignUpServlet.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/longdt/finalproject/controller/SignUpServlet.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/longdt/finalproject/controller/SignUpServlet.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/longdt/finalproject/controller/SignUpServlet.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/com/longdt/finalproject/controller/BookServlet.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

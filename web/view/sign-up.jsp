@@ -23,6 +23,7 @@
                             <h1>Create new Account</h1>
                         </div>
                         <p style="color: red;">${errorSignUpMessage}</p>
+                        <p style="color: green;">${message}</p>
                     </div>
                     <form method="POST" name="sign-up">
                         <div class="form-group">
